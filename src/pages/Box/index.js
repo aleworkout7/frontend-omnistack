@@ -24,7 +24,7 @@ export default class Box extends Component {
 
 	subsribeToNewFiles = () => {
 		const box = this.props.match.params.id;
-		const io = socket('https://omnistack-chile.herokuapp.com');
+		const io = socket('http://localhost:3333');
 
 		io.emit('connectRoom', box);
 
@@ -66,7 +66,7 @@ export default class Box extends Component {
 				<ul>
 					{ this.state.box.files && this.state.box.files.map(file => (
 						<li key={file._id}>
-							<a href={file.url} target="_blank">
+							<a className="fileInfo" href={file.url} target="_blank">
 								<MdInsertDriveFile size={24} color="#A5Cfff" />
 								<strong>{file.title}</strong>
 							</a>
